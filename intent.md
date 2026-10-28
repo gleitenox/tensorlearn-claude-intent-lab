@@ -38,7 +38,7 @@ Excluded from this approved scope:
 
 ## Constraints
 
-- **C-1** Review before notification: no notification is eligible until the laboratory upload is complete and a doctor has reviewed and released the result. The upload being complete is required but never sufficient on its own. (01, 02)
+- **C-1** Review before notification: no notification is eligible until a doctor has reviewed and released the result. (01, 02)
 - **C-2** No clinical detail: no diagnosis, test result, clinical measurement or treatment detail in the message or in notification and operational logs. (01; 02, privacy owner: "no sensitive content in messages or operational logs.")
 - **C-3** Authenticated access only: results are viewed in the existing authenticated portal. No attached results and no public result link. (01)
 - **C-4** No duplicates: avoid duplicate notifications for the same released result version, and handle delivery failures without duplicate patient messages. (01)
@@ -52,7 +52,7 @@ Excluded from this approved scope:
 
 ```json
 {
-  "notifyWhen": ["lab-upload-complete", "doctor-reviewed", "released"],
+  "notifyWhen": ["doctor-reviewed", "released"],
   "messageMayInclude": ["update-available"],
   "inScope": ["existing-portal-route", "duplicate-prevention", "delivery-failure-handling"],
   "openDecisions": [
